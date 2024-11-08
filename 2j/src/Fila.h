@@ -12,6 +12,9 @@ typedef int item;
 #define INDEF 999;
 #include "Nodo.h"
 
+template<class T> // esto es como hacer un include
+class Iterator;
+
 template<class T>
 class Fila {
 private:
@@ -26,7 +29,7 @@ public:
     	return frente == NULL;
     }
 
-    item Frente() {
+    T Frente() {
     	return (!EsFilaVacia()) ? frente->getDato() : INDEF;
     }
 
@@ -43,7 +46,7 @@ public:
     	}
     }
 
-    void Enfila(int valor) {
+    void Enfila(T valor) {
     	Nodo<T> * nuevoNodo = new Nodo<T>(valor);
     	if (EsFilaVacia()) {
     		frente = nuevoNodo;
@@ -59,7 +62,7 @@ public:
     	return longitud;
     }
 
-    bool Pertenece(int valor) {
+    bool Pertenece(T valor) {
     	Nodo<T>* temp = frente;
     	while (temp != NULL) {
     		if (temp->getDato() == valor) {
@@ -93,7 +96,7 @@ public:
     	}
     }
 
-    friend class Iterator;
+    friend class Iterator<T>;
 
 };
 

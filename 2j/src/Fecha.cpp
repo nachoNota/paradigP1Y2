@@ -3,7 +3,6 @@
  */
 
 #include "Fecha.h"
-
 #include <sstream>
 #include <ctime>
 #include <iostream>
@@ -127,4 +126,14 @@ bool operator<(Fecha fecha1, Fecha fecha2){
 						valor= false;
 	return valor;
 
+}
+
+bool operator==(Fecha fecha1, Fecha fecha2)
+{
+	if(fecha1.getAnio() == fecha2.getAnio() && fecha1.getDia() == fecha2.getDia() && fecha1.getMes() == fecha2.getMes())
+	{
+		return true;
+	} else {
+		return false;
+	}
 }
